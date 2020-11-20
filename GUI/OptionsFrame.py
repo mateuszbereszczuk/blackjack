@@ -101,7 +101,6 @@ class OptionsFrame(tk.Frame):
             round_summary += ' '.join(cards_code) + '} (' + str(self.simulation_game.player_hand.value) + ')\n'
             round_summary += result + '\n***\n'
             self.simulation_game.put_cards_back()
-            print(len(self.simulation_game.deck.deck))
             self.log_text.configure(state='normal')
             self.log_text.insert(tk.END, round_summary + '\n')
             self.log_text.configure(state='disabled')
