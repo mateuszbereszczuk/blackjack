@@ -9,6 +9,8 @@ class MainFrame(tk.Frame):
         self.parent = parent
         self.game_frame = GameFrame(self, bg='#008000')
         self.options_frame = OptionsFrame(self, bg='#cccccc')
+        self.bind('<Configure>', lambda _: self.on_resize())
 
-        self.game_frame.place(relwidth=0.8, relheight=1)
-        self.options_frame.place(relx=0.8, relwidth=0.2, relheight=1)
+    def on_resize(self):
+        self.options_frame.place(x=self.winfo_width() - 288, width=288, relheight=1)
+        self.game_frame.place(x=0, width=self.winfo_width() - 288, relheight=1)
